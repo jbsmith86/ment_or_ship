@@ -1,0 +1,16 @@
+<h1><%= @business.name %></h1>
+
+Website: <%= @business.website %><br/>
+Address: <%= @business.address %><br/>
+Phone: <%= @business.phone %><br/><br/>
+About: <%= @business.about %><br/><br/>
+
+<% if current_user %>
+  <% if @membership.empty? %>
+    <%= button_to "Become Member", {:action => :create, "controller"=>"memberships", "membership"=>{"business_id"=>"#{params[:id]}", "person_id"=>"#{current_user.id}"}}, :method => :post %>
+  <% else %>
+    <%= button_to "Cancel Membership", { :controller => "memberships", :action => "destroy", :id => @membership.first.id }, :method => :delete %>
+  <% end %>
+<% else %>
+  Sign in to become a member
+<% end %>
