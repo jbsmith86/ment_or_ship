@@ -1,4 +1,4 @@
-Ment or Ship assignment
+Ment or Ship
 ============
 
 The site I made is a basic example of a has_many :through association that connects a Person model to a Business model through a Membership model.
